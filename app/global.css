@@ -39,3 +39,170 @@ canvas {
     transition: 1s transform;
     z-index: 10;
 }
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+}
+
+.instructions {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+input[type="text"] {
+    background-color: transparent;
+    margin-top: 30px;
+    border: 0;
+    border-bottom: solid 1px #80bfff;
+    text-align: center;
+    font-size: 20px;
+    color: #75aaff;
+    width: 45px;
+}
+
+input:focus {
+    outline: 0;
+    border-bottom: dashed 1px #ff9999;
+}
+
+.progress {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 5px solid;
+    transition: all 1s ease;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    /* border: 5px solid #1a1a1a; */
+    overflow: hidden;
+}
+
+.percent {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-weight: bold;
+    line-height: 240px;
+    font-size: 42px;
+    color: #333;
+    text-shadow: 0 0 10px #333;
+    transition: all 1s ease;
+    z-index: 2;
+}
+
+.water {
+    position: absolute;
+    z-index: 1;
+    width: 200%;
+    height: 200%;
+    left: -50%;
+    top: 33%;
+    border-radius: 40%;
+    background: rgba(0, 255, 0, 0.5);
+    animation: spin 10s linear infinite;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+    transition: all 1s ease;
+}
+
+.glare {
+    position: absolute;
+    top: -120%;
+    left: -120%;
+    width: 200%;
+    height: 200%;
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: rotate(45deg);
+    border-radius: 50%;
+    z-index: 3;
+}
+
+/* Color Themes */
+.green .progress {
+    border-color: #53fc53;
+    box-shadow: 0 0 20px #2fbf2f;
+}
+
+.green .percent {
+    color: #2f6f2f;
+    text-shadow: 0 0 10px #2f6f2f;
+}
+
+.green .water {
+    background-color: rgba(83, 252, 83, 0.5);
+    box-shadow: 0 0 20px rgba(83, 252, 83, 0.5);
+}
+
+.red .progress {
+    border-color: #ed3b3b;
+    box-shadow: 0 0 20px #cc2929;
+}
+
+.red .percent {
+    color: #661111;
+    text-shadow: 0 0 10px #661111;
+}
+
+.red .water {
+    background-color: rgba(237, 59, 59, 0.5);
+    box-shadow: 0 0 20px rgba(237, 59, 59, 0.5);
+}
+
+.orange .progress {
+    border-color: #f07c3e;
+    box-shadow: 0 0 20px #c85a1d;
+}
+
+.orange .percent {
+    color: #6a2e00;
+    text-shadow: 0 0 10px #6a2e00;
+}
+
+.orange .water {
+    background-color: rgba(240, 124, 62, 0.5);
+    box-shadow: 0 0 20px rgba(240, 124, 62, 0.5);
+}
+
+/* Animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#copyright {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #999;
+}
+
+#copyright a {
+    color: gray;
+    text-decoration: none;
+    border-bottom: 1px solid gray;
+    padding-bottom: 2px;
+}
+
+#copyright a:hover {
+    color: #ccc;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 4px;
+}
