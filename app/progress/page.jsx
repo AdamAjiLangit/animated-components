@@ -10,6 +10,10 @@ const Progress = () => {
     const [tasks, setTasks] = useState([
         { title: 'Membuat Background Poster', completed: true },
         { title: 'Membuat Warna Poster', completed: true },
+        { title: 'Membuat Judul Poster', completed: true },
+        { title: 'Membuat Deskripsi Poster', completed: false },
+        { title: 'Membuat Logo Poster', completed: false },
+        { title: 'Membuat QR Code', completed: false },
     ]);
 
     const totalTasks = tasks.length;

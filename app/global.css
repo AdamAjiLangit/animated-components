@@ -177,6 +177,66 @@ input:focus {
     box-shadow: 0 0 20px rgba(240, 124, 62, 0.5);
 }
 
+.darkred .progress {
+    border-color: #a10000;
+    box-shadow: 0 0 20px #800000;
+}
+
+.darkred .percent {
+    color: #520000;
+    text-shadow: 0 0 10px #520000;
+}
+
+.darkred .water {
+    background-color: rgba(161, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(161, 0, 0, 0.5);
+}
+
+.orangered .progress {
+    border-color: #ff5722;
+    box-shadow: 0 0 20px #d84315;
+}
+
+.orangered .percent {
+    color: #6a1b09;
+    text-shadow: 0 0 10px #6a1b09;
+}
+
+.orangered .water {
+    background-color: rgba(255, 87, 34, 0.5);
+    box-shadow: 0 0 20px rgba(255, 87, 34, 0.5);
+}
+
+.gold .progress {
+    border-color: #fdd835;
+    box-shadow: 0 0 20px #fbc02d;
+}
+
+.gold .percent {
+    color: #9e7500;
+    text-shadow: 0 0 10px #9e7500;
+}
+
+.gold .water {
+    background-color: rgba(253, 216, 53, 0.5);
+    box-shadow: 0 0 20px rgba(253, 216, 53, 0.5);
+}
+
+.limegreen .progress {
+    border-color: #8bc34a;
+    box-shadow: 0 0 20px #689f38;
+}
+
+.limegreen .percent {
+    color: #33691e;
+    text-shadow: 0 0 10px #33691e;
+}
+
+.limegreen .water {
+    background-color: rgba(139, 195, 74, 0.5);
+    box-shadow: 0 0 20px rgba(139, 195, 74, 0.5);
+}
+
 /* Animation */
 @keyframes spin {
     from {

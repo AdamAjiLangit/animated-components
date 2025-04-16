@@ -6,9 +6,12 @@ const LiquidBubbleProgress = ({ completedTasks = 0, totalTasks = 1 }) => {
     const percentage = Math.round((completedTasks / totalTasks) * 100);
 
     const getColorClass = () => {
-        if (percentage < 33) return "red";
-        if (percentage < 66) return "orange";
-        return "green";
+        if (percentage < 20) return "darkred";        // 0–19%
+        if (percentage < 40) return "orangered";      // 20–39%
+        if (percentage < 60) return "gold";           // 40–59%
+        if (percentage < 80) return "limegreen";      // 60–79%
+        return "green";                               // 80–100%
+
     };
 
     return (
