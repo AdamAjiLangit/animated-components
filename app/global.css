@@ -266,3 +266,25 @@ input:focus {
     border-bottom: 1px solid #ccc;
     padding-bottom: 4px;
 }
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-rotate-slow {
+    animation: rotate 30s linear infinite;
+}
+
+.animate-rotate-slower {
+    animation: rotate 25s linear infinite;
+}
+
+.animate-rotate-slowest {
+    animation: rotate 32s linear infinite;
+}
