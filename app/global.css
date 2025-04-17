@@ -280,18 +280,22 @@ input:focus {
 }
 
 .wave-shape {
-    animation: none;
+    animation: rotateSlow 30s linear infinite;
+    animation-play-state: paused;
+    /* 🛑 Initially paused */
     transition: all 0.3s ease-in-out;
 }
 
 .group:hover .wave-shape {
-    animation: rotateSlow 30s linear infinite;
+    animation-play-state: running;
+    /* ✅ Start rotating on hover */
 }
 
 .group:hover .wave-shape:nth-child(2) {
-    animation: rotateSlow 40s linear infinite;
+    animation-duration: 40s;
+    /* Different speed */
 }
 
 .group:hover .wave-shape:nth-child(3) {
-    animation: rotateSlow 50s linear infinite;
+    animation-duration: 50s;
 }

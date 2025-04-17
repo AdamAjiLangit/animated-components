@@ -6,9 +6,9 @@ const AnimCardComponent = () => {
     return (
         <div className="relative group p-4 rounded-xl bg-[#bfff88] w-full max-w-80 overflow-hidden shadow-lg">
             {/* Liquid Waves */}
-            <div className="absolute wave-shape w-[400px] h-[400px] top-[-300px] right-[-200px] bg-[#9ded5e] opacity-60 rounded-[150px]"></div>
-            <div className="absolute wave-shape w-[400px] h-[400px] top-[-295px] right-[-198px] bg-[#9ded5e] opacity-40 rounded-[150px] z-10"></div>
-            <div className="absolute wave-shape w-[400px] h-[400px] top-[-290px] right-[-200px] bg-[#9ded5e] opacity-30 rounded-[150px] z-20"></div>
+            <div className="absolute wave-shape w-[400px] h-[400px] top-[-280px] right-[-200px] bg-[#9ded5e] opacity-60 rounded-[150px]"></div>
+            <div className="absolute wave-shape w-[400px] h-[400px] top-[-265px] right-[-198px] bg-[#9ded5e] opacity-40 rounded-[150px] z-10"></div>
+            <div className="absolute wave-shape w-[400px] h-[400px] top-[-260px] right-[-200px] bg-[#9ded5e] opacity-30 rounded-[150px] z-20"></div>
 
             {/* Card Content */}
             <div className='relative z-30'>
