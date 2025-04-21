@@ -40,13 +40,33 @@ canvas {
     z-index: 10;
 }
 
+/* Progress bar */
+
 .wrapper {
+    width: 260px;
+    height: 260px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-    text-align: center;
+    transition: --border-color 1s ease, background-color 1s ease;
+}
+
+.progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 259.5px;
+    height: 259.5px;
+    border-radius: 50%;
+    padding: 5px;
+    transition: background 1s ease, --border-color 1s ease;
+    background: conic-gradient(var(--border-color) var(--current-percentage),
+            #ddd var(--current-percentage) 100%);
+    mask: radial-gradient(farthest-side, transparent calc(100% - 10px), black calc(100% - 5px));
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 10px), black calc(100% - 5px));
+    z-index: 1;
+    pointer-events: none;
 }
 
 .instructions {
@@ -72,12 +92,12 @@ input:focus {
 
 .progress {
     position: relative;
-    width: 250px;
-    height: 250px;
+    width: 240.4px;
+    height: 240.4px;
     border-radius: 50%;
-    border: 5px solid;
+    /* border: 5px solid; */
     transition: all 1s ease;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); */
 }
 
 .inner {
@@ -116,7 +136,7 @@ input:focus {
     background: rgba(0, 255, 0, 0.5);
     animation: spin 10s linear infinite;
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
-    transition: all 1s ease;
+    transition: background 1s ease, box-shadow 1s ease, top 1s ease;
 }
 
 .glare {
@@ -267,7 +287,7 @@ input:focus {
     padding-bottom: 4px;
 }
 
-/* New */
+/* Anim Card */
 
 @keyframes rotateSlow {
     from {
@@ -282,13 +302,11 @@ input:focus {
 .wave-shape {
     animation: rotateSlow 30s linear infinite;
     animation-play-state: paused;
-    /* 🛑 Initially paused */
     transition: all 0.3s ease-in-out;
 }
 
 .group:hover .wave-shape {
     animation-play-state: running;
-    /* ✅ Start rotating on hover */
 }
 
 .group:hover .wave-shape:nth-child(2) {

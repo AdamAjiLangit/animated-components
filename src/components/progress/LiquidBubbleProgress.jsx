@@ -1,30 +1,61 @@
-'use client'
+'use client';
 
-import React from "react";
+import { useEffect, useState } from 'react';
 
-const LiquidBubbleProgress = ({ completedTasks = 0, totalTasks = 1 }) => {
-    const percentage = Math.round((completedTasks / totalTasks) * 100);
+export default function LiquidBubbleProgress({ completedTasks = 0, totalTasks = 1 }) {
+    const targetPercentage = Math.round((completedTasks / totalTasks) * 100);
 
-    const getColorClass = () => {
-        if (percentage < 20) return "darkred";        // 0–19%
-        if (percentage < 40) return "orangered";      // 20–39%
-        if (percentage < 60) return "gold";           // 40–59%
-        if (percentage < 80) return "limegreen";      // 60–79%
-        return "green";                               // 80–100%
+    const [currentPercentage, setCurrentPercentage] = useState(0);
 
-    };
+    useEffect(() => {
+        let animationFrame;
+        const animate = () => {
+            setCurrentPercentage(prev => {
+                if (prev < targetPercentage) {
+                    return Math.min(prev + 1, targetPercentage);
+                } else if (prev > targetPercentage) {
+                    return Math.max(prev - 1, targetPercentage);
+                }
+                return prev;
+            });
+            animationFrame = requestAnimationFrame(animate);
+        };
+        animate();
+        return () => cancelAnimationFrame(animationFrame);
+    }, [targetPercentage]);
+
+    const colorClass = currentPercentage < 20
+        ? 'darkred'
+        : currentPercentage < 40
+            ? 'orangered'
+            : currentPercentage < 60
+                ? 'gold'
+                : currentPercentage < 80
+                    ? 'limegreen'
+                    : 'green';
 
     return (
-        <div className="wrapper">
-            <div className={getColorClass()}>
+        <div
+            className={`wrapper ${colorClass}`}
+            style={{
+                '--percentage': `${targetPercentage}%`,
+                '--current-percentage': `${currentPercentage}%`,
+                '--border-color': colorClass,
+            }}
+        >
+            <div className="progress-ring"></div>
+
+            <div>
                 <div className="progress">
                     <div className="inner">
                         <div className="percent">
-                            <span>{percentage}</span>%
+                            <span>{targetPercentage}</span>%
                         </div>
                         <div
                             className="water"
-                            style={{ top: `${100 - percentage}%` }}
+                            style={{
+                                top: `${100 - targetPercentage}%`,
+                            }}
                         ></div>
                         <div className="glare"></div>
                     </div>
@@ -32,6 +63,4 @@ const LiquidBubbleProgress = ({ completedTasks = 0, totalTasks = 1 }) => {
             </div>
         </div>
     );
-};
-
-export default LiquidBubbleProgress;
+}
